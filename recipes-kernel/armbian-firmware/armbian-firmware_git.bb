@@ -22,7 +22,7 @@ SRCREV_armbian-firmware = "292e1e5b5bc5756e9314ea6d494d561422d23264"
 TMP_FIRMWARE_FOLDER = "${WORKDIR}/lib-firmware"
 
 SRC_URI = " \
-        git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git;name=linux-firmware;destsuffix=git/linux-firmware \
+        git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git;branch=main;name=linux-firmware;destsuffix=git/linux-firmware \
         git://github.com/armbian/firmware.git;name=armbian-firmware;destsuffix=git/armbian-firmware \
         "
 
