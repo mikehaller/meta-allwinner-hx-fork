@@ -1,14 +1,5 @@
-From 694ea5f80740a1695c01b0e47382dd86c3348628 Mon Sep 17 00:00:00 2001
-From: Truong Van Huy <truongvanhuy1995@gmail.com>
-Date: Wed, 11 May 2022 17:59:37 +0700
-Subject: [PATCH] Update rervision h3 dvk device tree
-
----
- arch/arm/boot/dts/sun8i-h3-rervision-dvk.dts | 168 ++++++++++++++++++-
- 1 file changed, 161 insertions(+), 7 deletions(-)
-
 diff --git a/arch/arm/boot/dts/sun8i-h3-rervision-dvk.dts b/arch/arm/boot/dts/sun8i-h3-rervision-dvk.dts
-index 4738f3a9efe4..401bc0533bf3 100644
+index 4738f3a9efe4..147b4e5813c4 100644
 --- a/arch/arm/boot/dts/sun8i-h3-rervision-dvk.dts
 +++ b/arch/arm/boot/dts/sun8i-h3-rervision-dvk.dts
 @@ -1,7 +1,43 @@
@@ -69,7 +60,7 @@ index 4738f3a9efe4..401bc0533bf3 100644
  
  	aliases {
  		ethernet0 = &emac;
-@@ -34,12 +70,54 @@ hdmi_con_in: endpoint {
+@@ -34,12 +70,49 @@
  			};
  		};
  	};
@@ -81,11 +72,6 @@ index 4738f3a9efe4..401bc0533bf3 100644
 +			label = "orangepi:green:pwr";
 +			gpios = <&r_pio 0 10 GPIO_ACTIVE_HIGH>;
 +			default-state = "on";
-+		};
-+
-+		status_led {
-+			label = "orangepi:red:status";
-+			gpios = <&pio 0 15 GPIO_ACTIVE_HIGH>;
 +		};
 +	};
 +
@@ -124,7 +110,7 @@ index 4738f3a9efe4..401bc0533bf3 100644
  &ehci1 {
  	status = "okay";
  };
-@@ -69,11 +147,25 @@ hdmi_out_con: endpoint {
+@@ -69,11 +142,25 @@
  	};
  };
  
@@ -151,7 +137,7 @@ index 4738f3a9efe4..401bc0533bf3 100644
  };
  
  &mmc2 {
-@@ -86,6 +178,17 @@ &mmc2 {
+@@ -86,6 +173,17 @@
  	status = "okay";
  };
  
@@ -169,7 +155,7 @@ index 4738f3a9efe4..401bc0533bf3 100644
  &ohci1 {
  	status = "okay";
  };
-@@ -98,17 +201,68 @@ &ohci3 {
+@@ -98,17 +196,81 @@
  	status = "okay";
  };
  
@@ -212,13 +198,13 @@ index 4738f3a9efe4..401bc0533bf3 100644
 +&uart1 {
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&uart1_pins>;
-+	status = "disabled";
++	status = "okay";
 +};
 +
 +&uart2 {
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&uart2_pins>;
-+	status = "disabled";
++	status = "okay";
 +};
 +
 +&uart3 {
@@ -239,6 +225,16 @@ index 4738f3a9efe4..401bc0533bf3 100644
 +	/* VBUS on USB host ports are always on */
  	status = "okay";
  };
--- 
-2.25.1
-
++&spi1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi1_pins>;
++	status = "okay";
++	#address-cells = <1>;
++	#size-cells = <0>;
++	spidev@0 {
++		compatible = "spidev";
++		status = "okay";
++		reg = <0>;
++		spi-max-frequency = <1000000>;
++	};
++};
