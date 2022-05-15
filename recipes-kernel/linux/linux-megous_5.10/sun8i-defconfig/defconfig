@@ -7937,3 +7937,6 @@ CONFIG_TEST_MEMCAT_P=m
 # CONFIG_MEMTEST is not set
 # end of Kernel Testing and Coverage
 # end of Kernel hacking
+CONFIG_SPI_MASTER=y
+CONFIG_EXPERIMENTAL=y
+CONFIG_SPI_SPIDEV=y
