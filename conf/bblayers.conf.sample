@@ -14,4 +14,6 @@ BBLAYERS = " \
   \
   ${BSPDIR}/sources/poky/meta \
   ${BSPDIR}/sources/poky/meta-poky \
+  ${BSPDIR}/sources/meta-swupdate \
+  ${BSPDIR}/sources/meta-swupdate-boards \
 "
