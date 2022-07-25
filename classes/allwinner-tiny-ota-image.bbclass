@@ -7,6 +7,7 @@ inherit allwinner-create-wks-update
 inherit empty_boot
 inherit extrausers
 require package-groups.inc
+inherit ota_debug
 
 # Add the wks creation class. This will enable the custom
 # wks file creation per image
@@ -25,13 +26,6 @@ IMAGE_FSTYPES += "ext4 tar.gz sunxi-sdimg wic.bz2 wic.bmap wksbuild"
 #                 bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11-base', '', d), d)} \
 #             "
 IMAGE_LINGUAS = "en-us"
-
-
-# Packages specific to allwinner
-SUNXI_PKGS = " \
-    allwinner-performance \
-    default-modules \
-"
 
 # # Most of the package groups are located in the classes/package-groups.inc
 # IMAGE_INSTALL += " \

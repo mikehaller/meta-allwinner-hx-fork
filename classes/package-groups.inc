@@ -30,7 +30,6 @@ STANDARD_PKGS = " \
     udev-automount \
     udev-python-gpio \
     dfu-util \
-    u-boot-fw-utils \
     kernel-base \
     kernel-modules \
 "
