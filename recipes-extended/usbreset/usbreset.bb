@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 RDEPENDS_${PN} += "bash"
 TARGET_CC_ARCH += "${LDFLAGS}"
 
-FILESEXTRAPATHS_append = "${THISDIR}/files:"
+FILESEXTRAPATHS:append = "${THISDIR}/files:"
 
 SRCREV = "${AUTOREV}"
 SRC_URI = "file://usbreset.c"

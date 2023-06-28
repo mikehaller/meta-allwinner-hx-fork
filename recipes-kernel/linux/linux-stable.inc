@@ -11,7 +11,7 @@ FILES_${KERNEL_PACKAGE_NAME}-fixup = "${KERNEL_IMAGEDEST}/fixup.scr"
 FILES_${KERNEL_PACKAGE_NAME}-dtbo = "${KERNEL_IMAGEDEST}/overlay"
 # Install devicetree files
 FILES_${KERNEL_PACKAGE_NAME}-dt = "${KERNEL_IMAGEDEST}/allwinner"
-PACKAGES_append += "${KERNEL_PACKAGE_NAME}-fixup ${KERNEL_PACKAGE_NAME}-dtbo ${KERNEL_PACKAGE_NAME}-dt"
+PACKAGES:append = "${KERNEL_PACKAGE_NAME}-fixup ${KERNEL_PACKAGE_NAME}-dtbo ${KERNEL_PACKAGE_NAME}-dt"
 
 # Pull in the devicetree files and u-boot config files into the rootfs
 RDEPENDS_${KERNEL_PACKAGE_NAME}-base += "kernel-devicetree kernel-image kernel-dt kernel-dtbo kernel-fixup u-boot"
@@ -57,21 +57,21 @@ ARMBIAN_URI = " \
         git://github.com/lwfinger/rtl8723ds.git;name=rtl8723ds;destsuffix=extras/rtl8723ds \
         git://github.com/lwfinger/rtl8723du.git;name=rtl8723du;destsuffix=extras/rtl8723du \
 "
-SRCREV_aufs5 =          "05111a0a66afcfce8eb4aafb5cfc887e052ac594"
-SRCREV_xradio =         "354e8c32e7948d46a63796d0ca266b1f702999b0"
-SRCREV_rtl8152 =        "006c40bcdf56c1701c9eadc34e29662bab5948ca"
-SRCREV_rtl8189es =      "a57f6985018f601b22ab689f36d1205273ae9e90"
-SRCREV_rtl8189fs =      "1ebc898cc5b671fe7145141fb9f3da14dab8c8ad"
-SRCREV_rtl8192eu =      "7e8858e0dfc10c025c8d114330f6c7d0353b4819"
-SRCREV_rtl8812au =      "b65dcf4105641716d16f3a6c96507fdd9c1862b4"
-SRCREV_rtl8811cu =      "2bebdb9a35c1d9b6e6a928e371fa39d5fcec8a62"
-SRCREV_rtl8188eu =      "0683c3382f7ad4bb90d72b9c903a90a7bd7b200d"
-SRCREV_rtl88x2bu =      "48e7c19c92a77554403e1347447f8e2cfd780228"
-SRCREV_rtl8723ds =      "80af87ac7687eb66e9359be118ef654160d0db53"
-SRCREV_rtl8723du =      "9690f34fc2603d04b53432df4e3d6c282f3d1ca6"
+SRCREV:aufs5 =          "05111a0a66afcfce8eb4aafb5cfc887e052ac594"
+SRCREV:xradio =         "354e8c32e7948d46a63796d0ca266b1f702999b0"
+SRCREV:rtl8152 =        "006c40bcdf56c1701c9eadc34e29662bab5948ca"
+SRCREV:rtl8189es =      "a57f6985018f601b22ab689f36d1205273ae9e90"
+SRCREV:rtl8189fs =      "1ebc898cc5b671fe7145141fb9f3da14dab8c8ad"
+SRCREV:rtl8192eu =      "7e8858e0dfc10c025c8d114330f6c7d0353b4819"
+SRCREV:rtl8812au =      "b65dcf4105641716d16f3a6c96507fdd9c1862b4"
+SRCREV:rtl8811cu =      "2bebdb9a35c1d9b6e6a928e371fa39d5fcec8a62"
+SRCREV:rtl8188eu =      "0683c3382f7ad4bb90d72b9c903a90a7bd7b200d"
+SRCREV:rtl88x2bu =      "48e7c19c92a77554403e1347447f8e2cfd780228"
+SRCREV:rtl8723ds =      "80af87ac7687eb66e9359be118ef654160d0db53"
+SRCREV:rtl8723du =      "9690f34fc2603d04b53432df4e3d6c282f3d1ca6"
 
 # Apply the armbian patches and defconfig
-do_patch_append() {
+do_patch:append() {
     set -x
     set -e
     # Add extra armbian modules in the kernel?
@@ -143,13 +143,13 @@ do_patch_append() {
 
 # Compile overlays. This is for compatibility since from version 4.20
 # and later individual dtbo build is not supported
-do_compile_append() {
+do_compile:append() {
     set -x
     bbnote "Compiling kernel overlays"
     oe_runmake -C ${B} CC="${KERNEL_CC}" ${PARALLEL_MAKE} modules dtbs
 }
 
-do_install_append() {
+do_install:append() {
     set -x
     dtbos=$(find . -name "*.dtbo" | grep ${OVERLAY_PREFIX})
     install -d ${D}/${KERNEL_IMAGEDEST}/overlay
@@ -170,7 +170,7 @@ do_install_append() {
 }
 
 # deploy the dtbo overlays in the DEPLOYDIR
-do_deploy_append() {
+do_deploy:append() {
     set -x
     dtbos=$(find . -name "*.dtbo" | grep ${OVERLAY_PREFIX})
     for dtbo in $dtbos; do

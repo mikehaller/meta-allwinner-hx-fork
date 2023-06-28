@@ -7,7 +7,7 @@ inherit systemd
 
 RDEPENDS_${PN} += "bash"
 
-FILESEXTRAPATHS_append = "${THISDIR}/files:"
+FILESEXTRAPATHS:append = "${THISDIR}/files:"
 
 SRC_URI = " \
 		file://allwinner_performance; \

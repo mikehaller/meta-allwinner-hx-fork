@@ -51,7 +51,7 @@ EOF
     fi
 }
 
-IMAGE_CMD_wksbuild() {
+IMAGE_CMD:wksbuild() {
     wks_build
 }
 

@@ -11,7 +11,7 @@ INHERIT += " rm_work"
 # For debugging u-boot and kernel
 RM_WORK_EXCLUDE += " linux-stable u-boot"
 
-DISTRO_FEATURES_append = " systemd"
+DISTRO_FEATURES:append = " systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
 
@@ -36,11 +36,11 @@ PREFERRED_VERSION_u-boot ?= "v2020.10%"
 PREFERRED_RPROVIDER_u-boot-fw-utils ?= "u-boot-fw-utils"
 PREFERRED_VERSION_u-boot-fw-utils ?= "v2020.10%"
 
-PREFERRED_PROVIDER_virtual/kernel ?= "linux-megous"
+PREFERRED_PROVIDER:virtual/kernel ?= "linux-megous"
 PREFERRED_VERSION_linux-megous ?= "5.10%"
 
 # In case you need the rt-kernel uncomment the two lines below
-#PREFERRED_PROVIDER_virtual/kernel = "linux-megous-rt"
+#PREFERRED_PROVIDER:virtual/kernel = "linux-megous-rt"
 #PREFERRED_VERSION_linux-megous-rt = "5.10%"
 
 #SSID = "YOUR_SSID"
