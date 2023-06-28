@@ -1,2 +1,2 @@
 
-GALLIUMDRIVERS_append = ",lima,kmsro"
+GALLIUMDRIVERS:append = ",lima,kmsro"

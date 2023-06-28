@@ -40,7 +40,7 @@ do_image_sunxi_sdimg[depends] += " \
 # SD card image name
 SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
 
-IMAGE_CMD_sunxi-sdimg () {
+IMAGE_CMD:sunxi-sdimg () {
 	set -x
 
 	# Align partitions

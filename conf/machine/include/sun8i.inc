@@ -1,6 +1,6 @@
 require conf/machine/include/soc-family.inc
 require sun-common.inc
-require conf/machine/include/tune-cortexa7.inc
+require conf/machine/include/arm/armv7a/tune-cortexa7.inc
 
 SOC_FAMILY = "sun8i"
 

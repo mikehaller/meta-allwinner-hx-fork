@@ -4,7 +4,7 @@ LINUX_VERSION = "5.10"
 
 PV = "5.10.18"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/linux-megous_${LINUX_VERSION}:${THISDIR}/../../scripts:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/linux-megous_${LINUX_VERSION}:${THISDIR}/../../scripts:"
 
 SRC_URI += " \
         git://github.com/megous/linux.git;branch=orange-pi-${LINUX_VERSION} \

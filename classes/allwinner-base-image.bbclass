@@ -11,7 +11,7 @@ require package-groups.inc
 IMAGE_CLASSES += "sdcard_image-sunxi"
 IMAGE_FSTYPES += "ext4 tar.gz sunxi-sdimg wic.bz2 wic.bmap wksbuild"
 
-CORE_IMAGE_EXTRA_INSTALL_append = " packagegroup-core-ssh-openssh"
+CORE_IMAGE_EXTRA_INSTALL:append = " packagegroup-core-ssh-openssh"
 IMAGE_FEATURES += "package-management \
             debug-tweaks \
             hwcodecs \

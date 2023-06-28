@@ -212,13 +212,13 @@ the kernel you want. The available options are:
 
 * orange-pi megous 5.10.y
 ```
-PREFERRED_PROVIDER_virtual/kernel = "linux-megous"
+PREFERRED_PROVIDER:virtual/kernel = "linux-megous"
 PREFERRED_VERSION_linux-stable = "5.10%"
 ```
 
 * linux-stable-rt 5.10.y
 ```
-PREFERRED_PROVIDER_virtual/kernel = "linux-megous-rt"
+PREFERRED_PROVIDER:virtual/kernel = "linux-megous-rt"
 PREFERRED_VERSION_linux-megous-rt = "5.10%"
 ```
 
